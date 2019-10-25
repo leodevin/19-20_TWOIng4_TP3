@@ -1,10 +1,19 @@
+function findCity(){
+    let city="";
+    if (document.getElementById('city-input').value != null){
+        city = document.getElementById('city-input').value;
+    }
+    start(city)
+
+}
+
 
 // Fonction appelée lors du click du bouton
-function start() {
+function start(city) {
   // Création de l'objet apiWeather
-  const apiWeather = new API_WEATHER();
-  // Appel de la fonction fetchTodayForecast
+  const apiWeather = new API_WEATHER(city);
 
+  // Appel de la fonction fetchTodayForecast
   apiWeather
     .fetchTodayForecast()
     .then(function(response) {
